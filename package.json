@@ -1,0 +1,54 @@
+{
+  "name": "nodejs-mappers-practice",
+  "version": "1.0.0",
+  "description": "This is a service to map attributes of youtube, instagram and facebook generic attribute",
+  "main": "server.js",
+  "scripts": {
+    "start": "export NODE_ENV=dev && nodemon --exec 'eslint ./ && babel-node server.js'",
+    "build:prod": "babel src -d dist/src  && babel config -d dist/config && babel server.js -d dist",
+    "start:prod": "export NODE_CONFIG_DIR=./dist/config && node dist/server.js",
+    "start:stag": "export NODE_ENV=staging && babel-node  server.js",
+    "test": "mocha --recursive",
+    "coverage": "nyc --all --reporter=html --reporter=text mocha --require @babel/register './src/**/*.test.js' --exit"
+  },
+  "keywords": [
+    "attribtues"
+  ],
+  "author": "Jasmin Thummar",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.14.3",
+    "axios": "^0.21.1",
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-prom-bundle": "^6.3.6",
+    "joi": "^17.4.0",
+    "kafkajs": "^1.15.0",
+    "mongoose": "^5.12.3",
+    "prom-client": "^13.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/register": "^7.13.14",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1",
+    "sinon": "^10.0.1",
+    "supertest": "^6.1.3"
+  }
+}
